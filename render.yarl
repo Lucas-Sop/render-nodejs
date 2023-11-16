@@ -12,4 +12,4 @@ services:
       - key: SECRET_SESSION
         value: 'mi-secreto'
       - key: SECRET_PASSPORT
-        value: 'secreto'
+        value: 'secreto'
