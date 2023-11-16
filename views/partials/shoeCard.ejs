@@ -1,0 +1,774 @@
+<main>
+    <section class="heroSection">
+        <div class="tituloShoes" data-aos="zoom-out-down" data-aos-delay="900" data-aos-once="true">
+            <nav class="guiaTitulo">
+                <a id="inicioLink" href="http://localhost:3600/">INICIO<i class="bi bi-arrow-right"></i></a>
+                <a href="http://localhost:3600/prod/group">CATÁLOGO<i class="bi bi-arrow-right"></i></a>
+                <a href="http://localhost:3600/prod/category">
+                    <%= product.marca %><i class="bi bi-arrow-right"></i>
+                </a>
+                <a href="#">
+                    <%= product.modelo %>
+                </a>
+            </nav>
+            <h3>ZAPATILLAS</h3>
+        </div>
+        <div class="catalogoShoes">
+            <div class="catalogoUno ocultarPhone ocultarTablet" data-aos="fade-up-right" data-aos-delay="1100"
+                data-aos-once="true">
+                <img src="<%= product.imagen %>" alt="">
+                <img src="<%= product.imagen %>" alt="">
+                <img src="<%= product.imagen %>" alt="">
+                <img src="<%= product.imagen %>" alt="">
+                <img src="<%= product.imagen %>" alt="">
+            </div>
+            <img src="<%= product.imagen %>" alt="Hydro_Zapatillas" class="catalogoDos" data-aos="fade-up"
+                data-aos-delay="1100" data-aos-once="true">
+
+            <div class="catalogoTres producto" data-aos="fade-up-left" data-aos-delay="1100" data-aos-once="true">
+                <div class="tresZonaUno">
+                    <div class="rate ocultarPhone">
+                        <div class="descripcionRate">
+                            <p>Hombres</p>
+                            <p>-</p>
+                            <p>Originales</p>
+                        </div>
+                        <div class="votacionRate">
+                            <div class="estrellas">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <p>2043</p>
+                        </div>
+                    </div>
+                    <h2>
+                        <%= product.modelo %>
+                    </h2>
+                    <div class="precio">
+                        <h3>$120</h3>
+                        <h2>$<%= product.precio %>
+                        </h2>
+                    </div>
+                </div>
+                <div class="catalogoColors">
+                    <h4>COLORES</h4>
+                    <div class="coloresShoes">
+                        <% Object.entries(product).forEach(([key, value])=> { %>
+
+                            <a href="#" class="colorShoe">
+
+                                <p>
+                                    <%= value.color %>
+                                </p>
+                            </a>
+                            <% }) %>
+                                <a href="#" class="colorShoe">
+                                </a>
+                                <a href="#" class="colorShoe">
+                                </a>
+                                <a href="#" class="colorShoe">
+                                </a>
+                    </div>
+                </div>
+                <div class="catalogoSizes">
+                    <h4>TALLES</h4>
+                    <div class="sizesDiv">
+                        <% product.talle.forEach(talle=> { %>
+                            <a href="#">
+                                <h5>
+                                    <%= talle %>
+                                </h5>
+                            </a>
+                            <% }) %>
+                    </div>
+                </div>
+                <div class="catalogoInfo">
+                    <a href="#">
+                        <h4>RESEÑAS</h4>
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                    <a href="#">
+                        <h4>DESCRIPCIÓN</h4>
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                    <a href="#">
+                        <h4>DETALLES</h4>
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                    <a href="#">
+                        <h4>DESTACADOS</h4>
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="catalogoAgregar">
+                    <button class="agregarBtn">
+                        <h3>CARRITO</h3>
+                    </button>
+                    <div id="mensajeAgregado" class="hidden">Producto agregado</div>
+                    <button>
+                        <h3>SEGUIR</h3>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        #mensajeAgregado {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: transparent;
+            color: #000;
+            font-weight: bold;
+            padding: 20px;
+            border: 2px solid #000;
+            border-radius: 5px;
+            box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+            display: none;
+            text-align: center;
+        }
+
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .guiaTitulo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .guiaTitulo a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-size: 1.188em;
+            font-weight: 500;
+            color: #c6c6c6;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .guiaTitulo a:hover {
+            color: #000;
+            transition: all 0.3s ease;
+        }
+
+        .guiaTitulo a:nth-child(4) {
+            color: #000;
+        }
+
+        /*
+        .guiaTitulo a::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            border-radius: 4px;
+            background-color: #000;
+            bottom: 0;
+            left: 0;
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .guiaTitulo a:hover::before,
+        .guiaTitulo a:focus::before {
+            transform-origin: left;
+            transform: scaleX(1);
+
+        }
+
+        .guiaTitulo a:hover::before {
+            transition: all 0.6s ease-in;
+        }
+
+        .guiaTitulo a:hover,
+        .guiaTitulo a:focus {
+            color: #000;
+        }
+
+        */
+
+        .tituloShoes {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .guiaTitulo {
+            width: fit-content;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /*
+        .guiaTitulo a {
+            color: #4a4a4a7c;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            transition: all 0.5s ease-out;
+            position: relative;
+        }
+        */
+        .guiaTitulo i {
+            font-size: 1.1rem;
+        }
+
+        @media screen and (max-width:767px) {
+            .guiaTitulo a:nth-child(4) {
+                display: none;
+            }
+
+            .guiaTitulo a:nth-child(3) i {
+                display: none;
+            }
+
+            .guiaTitulo a:nth-child(3) {
+                color: #000;
+            }
+
+            .tituloShoes h3 {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width:768px) and (max-width:1023px) {
+            .guiaTitulo a:nth-child(4) {
+                display: none;
+            }
+
+            .guiaTitulo a:nth-child(3) i {
+                display: none;
+            }
+
+            .guiaTitulo a:nth-child(3) {
+                color: #000;
+            }
+
+            .tituloShoes h3 {
+                display: none;
+            }
+        }
+
+
+        @media screen and (min-width:1024px) and (max-width:1440px) {}
+
+
+        @media screen and (min-width:1441px) and (max-width:1920px) {}
+
+        .heroSection {
+            display: flex;
+            flex-direction: column;
+            min-height: fit-content;
+            width: 85vw;
+            margin: 0 auto;
+            margin-top: 1.5rem;
+            padding-bottom: 1rem;
+            gap: 3rem;
+        }
+
+        @media screen and (max-width:767px) {
+            .heroSection {
+                min-height: 138vh;
+            }
+        }
+
+        @media screen and (min-width:768px) and (max-width:1023px) {}
+
+
+        @media screen and (min-width:1024px) and (max-width:1439px) {}
+
+
+        @media screen and (min-width:1440px) and (max-width:1920px) {}
+
+        .catalogoUno img:nth-child(1),
+        .catalogoUno img:nth-child(2),
+        .catalogoUno img:nth-child(3),
+        .catalogoUno img:nth-child(4),
+        .catalogoUno img:nth-child(5) {
+            height: 5rem;
+            width: 5rem;
+            background-color: #c4c4c483;
+            cursor: pointer;
+        }
+
+        .descripcionRate p:nth-child(1) {
+            font-weight: 600;
+        }
+
+        .descripcionRate p:nth-child(1) {
+            font-weight: 700;
+        }
+
+        .estrellas i:nth-child(5) {
+            color: #c4c4c4;
+        }
+
+        .estrellas i:hover {
+            color: #000;
+        }
+
+        .precio h3:nth-child(1) {
+            color: #c4c4c4;
+            text-decoration: line-through;
+        }
+
+        .coloresShoes:hover .colorShoe,
+        .sizesDiv:hover a,
+        .catalogoInfo:hover a,
+        .catalogoAgregar:hover button {
+            opacity: 0.5;
+        }
+
+        .coloresShoes:hover .colorShoe:hover,
+        .sizesDiv:hover a:hover,
+        .catalogoInfo:hover a:hover,
+        .catalogoAgregar:hover button:hover {
+            opacity: 1;
+        }
+
+        .colorShoe:focus {
+            border: none;
+        }
+
+        .sizesDiv a:nth-child(6),
+        .sizesDiv a:nth-child(20),
+        .nullTalle {
+            color: #ceb044;
+            border-color: #ceb044;
+            background-color: transparent;
+        }
+
+        .sizesDiv a:nth-child(6):focus,
+        .sizesDiv a:nth-child(20):focus {
+            background-color: #ceb044;
+            color: #fff;
+        }
+
+        .sizesDiv a:nth-child(9),
+        .sizesDiv a:nth-child(12) {
+            color: #adadad;
+            border-color: #adadad;
+            background-color: transparent;
+        }
+
+        .sizesDiv a:focus {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .catalogoInfo a::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            border-radius: 4px;
+            background-color: #000;
+            bottom: 0;
+            left: 0;
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .catalogoInfo a:hover::before,
+        .catalogoInfo a:focus::before {
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+
+        .catalogoInfo a:hover::before,
+        .catalogoAgregar button {
+            transition: all 0.6s ease-in;
+        }
+
+        .catalogoAgregar button:focus {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .catalogoShoes {
+            display: flex;
+            height: 100%;
+            justify-content: space-between;
+        }
+
+        .catalogoUno {
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+        }
+
+        .catalogoUno img {
+            flex: 1;
+            width: auto;
+            max-width: 100%;
+            background-color: #c4c4c483;
+        }
+
+        .catalogoDos {
+            min-height: 100%;
+            width: 55%;
+            background-color: #c4c4c483;
+            cursor: pointer;
+        }
+
+        .catalogoTres {
+            height: 100%;
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .tresZonaUno {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 18%;
+        }
+
+        .rate {
+            display: flex;
+            justify-content: space-between;
+            align-items: top;
+            height: 30%;
+        }
+
+        .descripcionRate {
+            display: flex;
+            gap: 0.3rem;
+            align-items: top;
+            height: 100%;
+            width: 30%;
+            font-size: 0.8rem;
+        }
+
+        .votacionRate {
+            display: flex;
+            justify-content: space-between;
+            width: 30%;
+            cursor: pointer;
+        }
+
+        .estrellas {
+            display: flex;
+            letter-spacing: 0.2rem;
+            font-size: 0.8rem;
+            height: fit-content;
+            color: #02C715;
+        }
+
+        .estrellas i,
+        .coloresShoes,
+        .colorShoe,
+        .sizesDiv,
+        .sizesDiv a {
+            transition: 0.4s all ease-in-out;
+        }
+
+        .tresZonaUno h2 {
+            letter-spacing: 0.1rem;
+        }
+
+        .precio {
+            display: flex;
+            text-align: center;
+            gap: 1rem;
+            font-size: 1.3rem;
+            color: #E72C39;
+        }
+
+        .catalogoColors {
+            height: 28%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .coloresShoes {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .colorShoe {
+            height: 4rem;
+            width: 4rem;
+            border-radius: 0.3rem;
+            border: 2px solid #A5A5A5;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .catalogoSizes {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            min-height: 12rem;
+            position: relative;
+        }
+
+        .sizesDiv {
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20% 20%;
+            grid-template-rows: 1fr;
+            align-content: space-between;
+            grid-row-gap: 0.3rem;
+            z-index: 1;
+        }
+
+        .sizesDiv a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            text-decoration: none;
+            height: 2rem;
+            width: 4.2rem;
+            border-radius: 0.3rem;
+            border: 2px solid #A5A5A5;
+        }
+
+        .catalogoInfo {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 8rem;
+        }
+
+        .catalogoInfo a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.5s ease-out;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .catalogoInfo a i {
+            font-size: 1.9rem;
+        }
+
+        .catalogoAgregar {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            min-height: fit-content;
+        }
+
+        .catalogoAgregar button {
+            padding: 0.5rem 1rem;
+            width: 45%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.3rem;
+            border: 2px solid #000;
+            cursor: pointer;
+            box-shadow: none;
+        }
+
+
+        @media screen and (max-width:767px) {
+            .catalogoColors a:nth-child(n) {
+                width: 3.5rem;
+                height: 3.5rem;
+            }
+
+            .sizesDiv a:nth-child(n) {
+                height: 2rem;
+                width: 3.5rem;
+            }
+
+            .ocultarPhone {
+                display: none;
+            }
+
+            .catalogoShoes {
+                flex-direction: column;
+            }
+
+            .catalogoDos,
+            .catalogoTres {
+                width: 100%;
+                height: 50vh;
+            }
+
+            .descripcionRate,
+            .votacionRate {
+                width: fit-content;
+            }
+
+            .catalogoInfo {
+                min-height: 10rem;
+            }
+
+            .catalogoAgregar {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+
+        @media screen and (min-width:768px) and (max-width:1023px) {
+            .catalogoColors a:nth-child(n) {
+                width: 6rem;
+                height: 6rem;
+            }
+
+            .sizesDiv a:nth-child(n) {
+                height: 3rem;
+                width: 6rem;
+            }
+
+            .ocultarTablet {
+                display: none;
+            }
+
+            .catalogoShoes {
+                flex-direction: column;
+            }
+
+            .catalogoDos,
+            .catalogoTres {
+                width: 100%;
+            }
+
+            .catalogoDos {
+                height: 50vh;
+            }
+
+            .catalogoColors {
+                gap: 1rem;
+            }
+
+            .descripcionRate,
+            .votacionRate {
+                width: fit-content;
+            }
+
+            .catalogoAgregar {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .catalogoAgregar button {
+                width: 30%;
+                height: 2.7rem;
+            }
+        }
+
+
+        @media screen and (min-width:1024px) and (max-width:1439px) {}
+
+
+        @media screen and (min-width:1440px) and (max-width:1920px) {}
+    </style>
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const agregarBtns = document.querySelectorAll('.agregarBtn');
+            const mensajeAgregado = document.getElementById('mensajeAgregado');
+            const listaCarrito = document.getElementById('listaCarrito');
+            const confirmacionCompra = document.getElementById('confirmacionCompra');
+            const siBtn = document.getElementById('siBtn');
+            const noBtn = document.getElementById('noBtn');
+            let total = 0; // Variable para almacenar el total
+
+
+            function mostrarMensaje(mensaje) {
+                mensajeAgregado.textContent = mensaje;
+                mensajeAgregado.style.display = "block";
+
+                setTimeout(function () {
+                    mensajeAgregado.style.display = "none";
+                }, 800);
+
+            }
+
+            agregarBtns.forEach(btn => {
+                btn.addEventListener('click', function (event) {
+                    const tresZonaUno = event.currentTarget.closest('.producto').querySelector('.tresZonaUno h2').textContent;
+                    const precio = event.currentTarget.closest('.producto').querySelector('.precio h3').textContent;
+
+                    // Convertir el precio a un número y sumarlo al total
+                    const precioNumerico = parseFloat(precio.replace('$', ''));
+                    total += precioNumerico;
+
+
+                    // Agregar al carrito
+                    const producto = document.createElement('div');
+                    producto.innerHTML = `<p>${tresZonaUno} - ${precio}</p>`;
+
+                    const eliminarBtn = document.createElement('button');
+                    eliminarBtn.textContent = 'Eliminar Producto';
+                    eliminarBtn.addEventListener('click', function () {
+                        producto.remove();
+                        // Restar el precio del producto eliminado del total
+                        total -= precioNumerico;
+                        // Actualizar el elemento del DOM que muestra el total al eliminar un producto
+                        actualizarTotal();
+                    });
+
+                    producto.appendChild(eliminarBtn);
+                    listaCarrito.appendChild(producto);
+
+
+                    mostrarMensaje("Producto agregado al carrito")
+
+                    actualizarTotal();
+
+                });
+            });
+
+            function actualizarTotal() {
+                // Actualizar el elemento del DOM que muestra el total
+                const totalElement = document.getElementById('total');
+                totalElement.textContent = `Total: $${total.toFixed(2)}`; // Mostrar el total actualizado
+            }
+
+            // Funcionalidad para el botón SI de confirmación de compra
+            siBtn.addEventListener('click', function () {
+                // Redireccionar a otra página al hacer clic en SI
+                window.location.href = 'http://localhost:3600/ayrton'; // Redireccionar a Google
+                // Coloca la URL a la que quieres redirigir en lugar de 'https://www.google.com'
+            });
+
+            // Funcionalidad para el botón NO de confirmación de compra
+            noBtn.addEventListener('click', function () {
+                // Ocultar el div con ID confirmacionCompra al hacer clic en NO
+                confirmacionCompra.style.display = 'none';
+            });
+        });
+    </script>

@@ -1,0 +1,107 @@
+<section>
+    <div class="contenidoCarrito">
+        <h1>Contenido del Carrito</h1>
+        <div id="productosCarrito">
+            <!-- Mostrar los productos del carrito -->
+            <ul></ul>
+            <button id="realizarCompraBtn">Realizar Compra</button>
+        </div>
+    </div>
+
+    <div id="mensajeCompraExitosa">
+        <p>Procesando su compra. Espere unos minutos</p>
+    </div>
+
+</section>
+
+<style>
+    #mensajeCompraExitosa{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    color: #000;
+    font-weight: bold;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+    display: none;
+    text-align: center;
+    }
+
+    .contenidoCarrito{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .contenidoCarrito h1{
+        font-size: 3em;
+    }
+
+    #realizarCompraBtn {
+        height: 40px;
+        min-width: 130px;
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 0.8rem;
+        padding: 5px 35px;
+        background: #fff;
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.063em;
+        text-align: center;
+        border: 1px solid #c6c6c6;
+        border-radius: 3px;
+        z-index: 0;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    #realizarCompraBtn::after {
+        content: "";
+        width: 100%;
+        z-index: -1;
+        position: absolute;
+        height: 100%;
+        bottom: 3px;
+        right: 5px;
+        background: #000;
+        border: 1px solid #000;
+        border-radius: 3px;
+        transition: 0.2s;
+    }
+
+    #realizarCompraBtn:hover {
+        color: #545454;
+    }
+
+    #realizarCompraBtn:hover::after {
+        border: 1px solid #545454;
+    }
+
+    #realizarCompraBtn:focus {
+        border: 1px solid #000;
+    }
+
+</style>
+
+
+<script>
+    const realizarCompraBtn = document.getElementById('realizarCompraBtn');
+        const mensajeCompraExitosa = document.getElementById('mensajeCompraExitosa');
+
+        realizarCompraBtn.addEventListener('click', () => {
+            mensajeCompraExitosa.style.display = 'block'; // Mostrar mensaje de compra exitosa
+
+            setTimeout(() => {
+                window.location.href = 'http://localhost:3600/compraRealizada'; // Redirigir a Google después de 3 segundos (3000 ms)
+            }, 10000);
+        });
+</script>

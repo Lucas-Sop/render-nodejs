@@ -1,0 +1,1322 @@
+
+<header id="header">
+    <div class="headerDescuento aos-init aos-animate" data-aos="fade-right" data-aos-once="true">
+        <button href="#" class="descuentoLink">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <h4>APP EXCLUSIVA! 33% OFF</h4>
+            <i class="bi bi-arrow-right"></i>
+        </button>
+
+        <div class="alertaHeader"  style="display: none;">
+            <p>"X" ofrece una gran variedad de descuentos y promociones a nuestro usarios. Para acceder a estos descuentos haz click en registrarse</p>
+            <div class="btnAlertH">
+                <button id="registrateBtn">registrarse</button>
+                <button id="cerrarAlertaBtn"><i class="bi bi-x-lg"></i></button>
+
+            </div>
+        </div>
+    </div>
+    <div class="headerDiv" data-aos="fade-left" data-aos-once="true">
+        <div class="containerLogo" id="headerLink">
+            <img src="https://raw.githubusercontent.com/mateoargf/imagenesXEcomerceTPFINAL/main/logoX.png" alt="logo">
+            <p>X</p>
+        </div>
+        <nav class="containerNav">
+            <ul class="horizontalMenu">
+                <li><a href="http://localhost:3600/">NUEVO</a></li>
+                <li>
+                    <a href="http://localhost:3600/prod/category">HOMBRE</a>
+                    <ul class="verticalMenu">
+                        <li><a href="#">item</a></li>
+                        <li><a href="#">item</a></li>
+                        <li><a href="#">item</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://localhost:3600/prod/category">MUJER</a>
+                    <ul class="verticalMenu">
+                        <li><a href="#">item</a></li>
+                        <li><a href="#">item</a></li>
+                        <li><a href="#">item</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://localhost:3600/prod/category">NIÑOS</a>
+                    <ul class="verticalMenu">
+                        <li><a href="#">item</a></li>
+                        <li><a href="#">item</a></li>
+                        <li><a href="#">item</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">VENTA</a></li>
+            </ul>
+        </nav>
+        <div class="menuHeader">
+            <div class="search">
+                <form action="" class="formSearch">
+                    <button><i class="bi bi-search iconSearch"></i></button>
+                    <input type="text" name="" id="" placeholder="Busqueda">
+                </form>
+            </div>
+
+            <div class="bag">
+                <button id="carritoBtn"><i class="bi bi-bag iconBag"></i></button>
+            </div>
+
+            <div id="carritoMenu">
+                <h2>Carrito de Compras</h2>
+        
+                <ul id="listaCarrito"></ul>
+        
+                <p id="total">Total: $0</p>
+        
+                <div id="confirmacionCompra">
+                    <p>¿Quiere confirmar su compra?</p>
+                    <button id="siBtn">SI</button>
+                    <button id="noBtn">NO</button>
+                </div>
+        
+                <div class="containerBtnMenu">
+                    <button id="comprarAhoraBtn">Comprar Ahora</button>
+                    <button id="cerrarCarritoBtn"><i class="bi bi-x-lg X"></i></button>
+                </div>
+            </div> 
+
+            <div class="menuHamburger">
+                <button id="openHamburger"><i class="bi bi-list iconMenu"></i></button>
+            </div>
+            <div class="hamburgerMenu" id="hamburger">
+                <div class="hamburgerContainerHeader">
+                    <div class="logoHeaderHamburger">
+                        <img src="https://raw.githubusercontent.com/mateoargf/imagenesXEcomerceTPFINAL/main/logoX.png"
+                            alt="logo adiddas">
+                        <p>X</p>
+                    </div>
+                    <div class="btnHamburguer">
+                        <!-- <div class="btnTraslate">
+                            <button><i class="bi bi-translate"></i> eng <i class="bi bi-arrow-down"></i></button>
+                        </div> -->
+                        <div class="btnTraslate">
+                            <button id="toggleTranslationBtn"><i class="bi bi-translate"></i> <span id="languageIndicator">eng</span> <i class="bi bi-arrow-down"></i></button>
+                        </div>
+                        <div id="google_translate_element" style="display: none;"></div>
+                        <div class="btnDollar">
+                            <button><i class="bi bi-currency-dollar"></i> usd <i class="bi bi-arrow-down"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="containerHamburgerContent">
+                    <div class="element">
+                        <div class="section">
+                            <a href="http://localhost:3600/">Pagina Principal</a>
+                            <button><i class="bi bi-arrow-right arrow-right"></i></button>
+                        </div>
+                        <div class="img">
+                            <img src="/img/header/myWishlist_photo.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="element">
+                        <div class="img">
+                            <img src="/img/header/myWishlist_photo.jpg" alt="">
+                        </div>
+                        <div class="section">
+                            <a href="http://localhost:3600/prod/group">Catalogo</a>
+                            <button><i class="bi bi-arrow-right arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="element">
+                        <div class="section">
+                            <a href="#">Contactos</a>
+                            <button><i class="bi bi-arrow-right arrow-right"></i></button>
+                        </div>
+                        <div class="img">
+                            <img src="/img/header/myWishlist_photo.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="element">
+                        <div class="img">
+                            <img src="/img/header/myWishlist_photo.jpg" alt="">
+                        </div>
+                        <div class="section">
+                            <a href="#">Preguntas frecuentes</a>
+                            <button><i class="bi bi-arrow-right arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="element">
+                        <div class="section">
+                            <a href="http://localhost:3600/prod/login">Perfil</a>
+                            <button><i class="bi bi-arrow-right arrow-right"></i></button>
+                        </div>
+
+                        <div class="img">
+                            <img src="/img/header/myWishlist_photo.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="footerHamburgerContainer">
+                    <div class="textFooter">
+                        <p>No te detengas hasta que estés orgullosa</p>
+                    </div>
+                    <div class="iconFooter">
+                        <button id="closeHamburger"><i class="bi bi-x-lg "></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Syne', sans-serif;
+    }
+
+    header {
+        position: sticky;
+        top: 0;
+        background-color: #fff;
+        z-index: 1000;
+    }
+
+    #cerrarAlertaBtn{
+        width: 90px;
+        height: 90px;
+        background-color: transparent;
+        color: #000;
+        border: none;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 1.5em;
+        line-height: 90px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+    }
+
+    #cerrarAlertaBtn:hover {
+        background-color: #000;
+        color: #fff;
+    }
+
+    .btnAlertH{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+
+    #registrateBtn {
+        height: 40px;
+        min-width: 130px;
+        /* width: 100%; */
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 0.8rem;
+        padding: 5px 25px;
+        background: #fff;
+        color: #000;
+        font-weight: 600;
+        font-size: 1.063em;
+        text-align: center;
+        border: 1px solid #c6c6c6;
+        border-radius: 3px;
+        z-index: 0;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    #registrateBtn::after {
+        content: "";
+        width: 100%;
+        z-index: -1;
+        position: absolute;
+        height: 100%;
+        bottom: 3px;
+        right: 5px;
+        background: #fff;
+        border: 1px solid #000;
+        border-radius: 3px;
+        transition: 0.2s;
+    }
+
+    #registrateBtn:hover {
+        color: #545454;
+    }
+
+    #registrateBtn:hover::after {
+        border: 1px solid #545454;
+    }
+
+    #registrateBtn:focus {
+        border: 1px solid #000;
+    }
+
+    .alertaHeader{
+        position: fixed;
+        top: 50vh;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        color: #000;
+        font-weight: bold;
+        padding: 20px;
+        border: 2px solid #000;
+        border-radius: 5px;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+        display: none;
+        text-align: center;
+    }
+
+    .headerDescuento:hover .descuentoLink,
+    .headerDescuento:hover {
+        background-color: #fff;
+        color: #000;
+        transition-delay: 0.3s;
+        transition-timing-function: ease-out;
+    }
+
+
+
+    .descuentoLink span:nth-child(1) {
+        width: 100%;
+        height: 2px;
+        top: 0;
+        left: -100%;
+    }
+
+    .descuentoLink span:nth-child(2) {
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        right: -100%;
+    }
+
+    .descuentoLink span:nth-child(3) {
+        width: 2px;
+        height: 100%;
+        bottom: -100%;
+        left: 0;
+    }
+
+    .descuentoLink span:nth-child(4) {
+        width: 2px;
+        height: 100%;
+        top: -100%;
+        right: 0;
+    }
+
+    .descuentoLink:hover span:nth-child(1) {
+        left: 0;
+    }
+
+    .descuentoLink:hover span:nth-child(2) {
+        right: 0;
+    }
+
+    .descuentoLink:hover span:nth-child(3) {
+        bottom: 0;
+    }
+
+    .descuentoLink:hover span:nth-child(4) {
+        top: 0;
+    }
+
+    .containerNav a::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        border-radius: 4px;
+        background-color: #000;
+        bottom: 0;
+        left: 0;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: all 0.5s ease-in-out;
+    }
+
+    .containerNav a:hover::before,
+    .containerNav a:focus::before {
+        transform-origin: left;
+        transform: scaleX(1);
+
+    }
+
+    .search:hover,
+    .carrito:hover,
+    .menuIcon:hover {
+        border: 2px solid #4a4a4a7c;
+    }
+
+    .search:hover .lupa,
+    .search:hover input::placeholder,
+    .carrito:hover,
+    .menuIcon:hover {
+        color: #4a4a4a7c;
+    }
+
+    .search::placeholder {
+        color: #4A4A4A;
+        font-family: 'Syne', sans-serif;
+    }
+
+    .search:focus-within,
+    .carrito:focus-within,
+    .menuIcon:focus-within {
+        color: #080808;
+        border-color: #080808;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .search:focus-within .lupa,
+    .search:focus-within input::placeholder,
+    .carrito:focus-within i,
+    .menuIcon:focus-within i {
+        color: #080808;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .search:focus-within input::placeholder {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .headerDescuento,
+    .descuentoLink,
+    input::placeholder,
+    .search,
+    .lupa,
+    .carrito,
+    .menuIcon,
+    .containerNav a:hover::before {
+        transition: all 0.6s ease-in;
+    }
+
+    .headerDescuento {
+        max-width: 100vw;
+        height: 2rem;
+        background-color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .descuentoLink {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: fit-content;
+        background: transparent;
+        color: #CFCFCF;
+        border: none;
+        text-decoration: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        padding: 0 .5rem;
+    }
+
+    .descuentoLink span {
+        position: absolute;
+        background-color: #000;
+        transition: all 1s ease-out;
+    }
+
+    .descuentoLink i {
+        font-size: 1.5rem;
+    }
+
+    .headerDiv {
+        display: flex;
+        justify-content: space-between;
+        width: 85vw;
+        margin: 0 auto;
+    }
+
+    .containerLogo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .containerLogo img {
+        height: 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .containerLogo p {
+        font-size: 1.1rem;
+    }
+
+    .containerNav {
+        text-align: center;
+        display: flex;
+        align-items: center;
+    }
+
+    .containerNav a {
+        font-weight: 600;
+        margin-left: 1rem;
+        text-decoration: none;
+        color: black;
+        position: relative;
+    }
+
+    .horizontalMenu {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .horizontalMenu>li>a {
+        display: block;
+        text-decoration: none;
+        position: relative;
+        text-transform: uppercase;
+    }
+
+    .horizontalMenu>li>a::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        border-radius: 4px;
+        background-color: #000;
+        bottom: 0;
+        left: 0;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .horizontalMenu>li>a:hover::before {
+        transform-origin: left;
+        transform: scaleX(1);
+    }
+
+    .verticalMenu {
+        position: absolute;
+        display: none;
+        list-style: none;
+    }
+
+    .horizontalMenu li:hover .verticalMenu {
+        display: block;
+    }
+
+    .verticalMenu>li>a {
+        text-decoration: none;
+        position: relative;
+        text-transform: uppercase;
+    }
+
+    .verticalMenu>li>a::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        border-radius: 4px;
+        background-color: #000;
+        bottom: 0;
+        left: 0;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .verticalMenu>li>a:hover::before {
+        transform-origin: left;
+        transform: scaleX(1);
+    }
+
+    .menuHeader {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: 0.5rem;
+    }
+
+
+    .search {
+        display: flex;
+        align-items: center;
+        border: 2px solid #2a2a2a;
+        border-radius: 5px;
+        padding: 0px 15px;
+        height: 40px;
+        width: 40%;
+        transition: all 0.5s ease;
+    }
+
+    .search:hover {
+        width: 100%;
+        transition: all 0.5s ease;
+    }
+
+    .search:focus {
+        border: 2px solid #3a3a3a;
+        border-radius: 5px;
+        outline: none;
+        transition: all 0.5s ease;
+        width: 100%;
+    }
+
+    .formSearch {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .formSearch>button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .iconSearch {
+        color: #2a2a2a;
+        font-size: 1.2em;
+    }
+
+    .formSearch>input {
+        height: 30px;
+        width: 100%;
+        border: none;
+        transition: all 0.3s ease;
+        background-color: transparent;
+        text-align: left;
+    }
+
+    .formSearch>input:hover {
+        width: 100%;
+        text-align: right;
+        transition: all 0.3s ease;
+    }
+
+    .formSearch>input:focus {
+        text-align: left;
+        outline: none;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+    /*Configuracion del menu hamburguesa*/
+    /*Header del menu hamburguesa*/
+    .menuHamburger>button {
+        padding: 3px 10px;
+        background-color: transparent;
+        border: 2px solid #3a3a3a;
+        border-radius: 5px;
+        cursor: pointer;
+        /*position: relative;*/
+        display: inline-block;
+        outline: none;
+        transition: all 0.3s ease;
+    }
+
+    .menuHamburger>button:hover {
+        border: 2px solid #b8b8b8;
+    }
+
+    .iconMenu:hover {
+        color: #b8b8b8;
+    }
+
+    .iconMenu {
+        font-size: 1.5rem;
+        color: #1a1a1a;
+    }
+
+
+    .hamburgerMenu {
+        display: flex;
+        flex-direction: column;
+        position: fixed;/*position: absolute;*/
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #e6e6e6;        
+        color: black;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s ease;
+        z-index: 999;
+    }
+
+
+
+    .hamburgerMenu.visible {
+        opacity: 1;
+        visibility: visible;
+        transition: all 0.5s ease;
+    }
+
+
+    .hamburgerContainerHeader {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #e6e6e6;
+    }
+
+    .logoHeaderHamburger {
+        display: flex;
+        align-items: center;
+    }
+
+    .logoHeaderHamburger img {
+        height: 100px;
+    }
+
+    .btnHamburguer {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+
+    .btnTraslate button {
+        min-width: 130px;
+        height: 40px;
+        color: #1a1a1a;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        padding: 4px 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        border-radius: 5px;
+        border: 2px solid #2a2a2a;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .btnTraslate button:hover {
+        background-color: #2a2a2a;
+        background-color: #e6e6e6;
+    }
+
+    .btnDollar button {
+        min-width: 130px;
+        height: 40px;
+        color: #1a1a1a;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        padding: 4px 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        border-radius: 5px;
+        border: 2px solid #2a2a2a;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .btnDollar button:hover {
+        background-color: #2a2a2a;
+        color: #fff;
+    }
+
+    /*fin de la ediccion del header del menu hamburguesa*/
+
+    /*ediccion del contenido del menu hamburguesa*/
+    .containerHamburgerContent {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: #e6e6e6;    }
+
+    .element {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding-left: 100px;
+        
+
+        border-bottom: 1px solid #c6c6c6;
+    }
+.element:nth-child(1),.element:nth-child(3),.element:nth-child(5){
+    padding-right: 150px;
+
+}
+.element:nth-child(2), .element:nth-child(4){
+padding-left: 200px;}
+
+
+    .img img {
+        height: 20vh;
+        border-radius: 5px;
+    }
+
+    .section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 58%;
+    }
+
+    .section button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .section a {
+        text-decoration: none;
+        font-size: 1.375em;
+        color: #000;
+        font-weight: 700;
+        transition: all 0.3s ease;
+    }
+
+    .section a:hover{
+        color: #000;
+        transition: all 0.3s ease;
+    }
+
+
+
+    .arrow-right {
+        font-size: 2em;
+    }
+
+    /*fin de la ediccion del contenido del menu hamburguesa*/
+
+    /*ediccion del "footer" del menu hamburguesa*/
+    .footerHamburgerContainer {
+        display: flex;
+        
+        align-items: center;
+        padding: 30px 0;
+        justify-content: center;
+        background-color: transparent;
+        z-index: 999;
+        background-color: #e6e6e6;
+        flex-direction: column;
+      }
+    .footerHamburgerContainer>  {
+        display: none;
+    }
+
+    .iconFooter button {
+        width: 90px;
+        height: 90px;
+        background-color: transparent;
+        color: #000;
+        border: none;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 1.5em;
+        line-height: 90px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+    }
+
+    .iconFooter button:hover {
+        background-color: #000;
+        color: #fff;
+    }
+
+    /*fin de la ediccion del "footer" del munu hamburguesa*/
+
+    /*Ediccion del boton del carrito*/
+
+#carritoBtn{
+    padding: 3px 10px;
+    background: transparent;
+    border: 2px solid #3a3a3a;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.iconBag{
+    font-size: 1.5rem;
+    color: #1a1a1a;
+    transition: all 0.3s ease;
+}
+
+#carritoBtn .iconBag:hover{
+  color: #b8b8b8;
+}
+
+#carritoMenu{
+    position: fixed;
+    top: 0;/*60px*/
+    right: 0; /*20*/
+    /* bottom: 0; */
+    padding: 25px;
+    background: #000;
+    box-shadow: 0 0 0 100vmax rgba(0,0,0, .5);
+    display: none;
+    transition: all 0.5s ease;
+}
+
+#carritoMenu h2{
+    color: #fff;
+}
+
+ul li{
+    color: #fff;
+}
+
+ul li button{
+    background: #E32B2B;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+ul li button:hover{
+    background: #fff;
+    color: #E32B2B;
+    border: none;
+}
+
+#listaCarrito{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 15px 0;
+    width: 100%;
+}
+
+#listaCarrito li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#total{
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    color: #E32B2B;   
+    padding: 15px 0;
+}
+
+#confirmacionCompra {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    text-align: center;
+}
+
+#confirmacionCompra button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.containerBtnMenu{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#comprarAhoraBtn{
+    height: 40px;
+    min-width: 130px;
+    padding: 5px 25px;
+    background: #000;
+    position: relative;
+    color: #000;
+    font-weight: 600;
+    font-size: 1.063em;
+    text-align: center;
+    border: 1px solid #c6c6c6;
+    border-radius: 3px;
+    cursor: pointer;
+    z-index: 0;
+    transition: all 0.3s ease;
+}
+
+#comprarAhoraBtn::after{
+    content: "";
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    bottom: 3px;
+    right: 5px;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 3px;
+    transition: 0.2s;
+}
+
+#comprarAhoraBtn:hover{
+    color: #545454;
+}
+
+#comprarAhoraBtn:hover::after{
+    border: 1px solid #545454;
+}
+
+#comprarAhoraBtn:focus{
+    border: 1px solid #000;
+}
+
+#cerrarCarritoBtn{ 
+    width: 90px; 
+    height: 90px; 
+    background-color: transparent;
+    color: #fff;
+    border: none; 
+    border-radius: 50%; 
+    text-align: center; 
+    font-size: 1.5em; 
+    line-height: 90px; 
+    cursor: pointer;  
+    transition: all 0.3s ease;  
+    position: relative;
+    display: inline-block;
+    outline: none;
+}
+
+#siBtn{
+    background: transparent;
+    border: 2px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#siBtn:hover{
+    background: #000;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+#noBtn{
+    background: transparent;
+    border: 2px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#noBtn:hover{
+    background: #000;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+#mensajeAgregado {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    color: #000;
+    font-weight: bold;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+    display: none;
+    text-align: center;
+}
+
+#listaCarrito div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#listaCarrito div button{
+    background: #E32B2B;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#listaCarrito div button:hover{
+    background: #fff;
+    color: #E32B2B;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+#listaCarrito div p {
+    color: #fff;
+}
+
+
+/*fin de la ediccion del boton bag y 
+fin de la ediccion del header*/
+
+    @media screen and (min-width:768px) and (max-width:1023px) {
+        .containerHeader {
+            width: 95%;
+        }
+
+        nav {
+            display: none;
+        }
+
+        .headerDiv {
+            width: 95vw;
+        }
+    }
+
+    @media screen and (max-width:767px) {
+        .containerHeader {
+            width: 100%;
+        }
+
+        nav {
+            display: none;
+        }
+
+        .bag {
+            display: none;
+        }
+
+        .hamburgerContainerHeader {
+            flex-direction: column;
+        }
+
+        .containerHamburgerContent {
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+
+    /*fin de la ediccion del header*/
+    @media screen and (max-width:767px) {
+
+        /*
+        header {
+            width: 95vw;
+            margin: 0 auto;
+        }
+        */
+
+        .headerDiv {
+            width: 95vw;
+        }
+
+        .containerNav {
+            display: none;
+        }
+
+
+    }
+
+    @media screen and (min-width:768px) and (max-width:1023px) {
+        .containerNav {
+            display: none;
+        }
+    }
+
+
+    @media screen and (min-width:1024px) and (max-width:1440px) {}
+
+
+    @media screen and (min-width:1441px) and (max-width:1920px) {}
+
+</style>
+<!-- <script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'es',  // Establece el idioma original
+            autoDisplay: false,
+        }, 'google_translate_element');
+    }
+
+    document.getElementById('toggleTranslationBtn').addEventListener('click', function () {
+        var select = document.querySelector('.goog-te-combo');
+        var languageIndicator = document.getElementById('languageIndicator');
+
+        if (select && languageIndicator) {
+            if (select.value === 'en') {
+                // Si el idioma actual es inglés, cambia a español
+                select.value = 'es';
+                languageIndicator.textContent = 'esp';
+            } else {
+                // Si el idioma actual no es inglés, cambia a inglés
+                select.value = 'en';
+                languageIndicator.textContent = 'eng';
+            }
+
+            var event = new Event('change');
+            select.dispatchEvent(event);
+        }
+    });
+</script> -->
+
+<script>
+    // agrega un evento click que vuelva al inicio
+     document.getElementById('headerLink').addEventListener('click', (e) => {
+         // Evita que el enlace siga normalmente
+         e.preventDefault()
+ 
+         // Redirige a '/'
+         window.location.href="/"
+     })
+</script>
+
+<!-- <script src="../pages/scripts/bag.js"></script> -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const carritoBtn = document.querySelector("#carritoBtn");
+    const carritoMenu = document.querySelector("#carritoMenu");
+    const comprarAhoraBtn = document.querySelector("#comprarAhoraBtn");
+    const cerrarCarritoBtn = document.querySelector("#cerrarCarritoBtn");
+    const confirmacionCompra = document.querySelector("#confirmacionCompra");
+    const listaCarrito = document.getElementById('listaCarrito');
+
+
+    carritoBtn.addEventListener("click", function() {
+        carritoMenu.style.display = "block";
+    });
+
+    cerrarCarritoBtn.addEventListener("click", function() {
+        carritoMenu.style.display = "none";
+    });
+
+
+    function mostrarMensaje(mensaje) {
+        mensajeAgregado.textContent = mensaje;
+        mensajeAgregado.style.display = "block";
+
+        setTimeout(function() {
+            mensajeAgregado.style.display = "none";
+        }, 800);
+    }
+
+   
+    comprarAhoraBtn.addEventListener('click', function() {
+        if (listaCarrito.childElementCount === 0) {
+            // alert('Usted no tiene ningún producto, por favor agregue uno.');
+            mostrarMensaje("Usted no tiene ningún producto, por favor agregue uno");
+        } else {
+            confirmacionCompra.style.display = 'block';
+        }
+    })
+});
+
+</script>
+
+<!-- <script src="./../pages/scripts/hamburguesa.js"></script> -->
+
+<script>
+    const hamburger = document.querySelector("#hamburger");
+    const abrir = document.querySelector("#openHamburger");
+    const cerrar = document.querySelector("#closeHamburger");
+
+    abrir.addEventListener("click", () => {
+        hamburger.classList.add("visible");
+    })
+
+    cerrar.addEventListener("click", () =>{
+        hamburger.classList.remove("visible");
+    })
+</script>
+
+<!-- script que tra google translate  -->
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+
+    const descuentoLink = document.querySelector('.descuentoLink');
+    const alertaHeader = document.querySelector('.alertaHeader');
+    const cerrarAlertaBtn = document.getElementById('cerrarAlertaBtn');
+    const registrateBtn = document.getElementById('registrateBtn');
+
+     // Oculta el banner de traducción de Google
+   
+
+    descuentoLink.addEventListener('click', () => {
+        alertaHeader.style.display = 'block';
+    });
+
+    cerrarAlertaBtn.addEventListener('click', () => {
+        alertaHeader.style.display = 'none';
+    });
+
+    registrateBtn.addEventListener('click', () => {
+        // Agregar un retraso de 2 segundos antes de redirigir a Google
+        setTimeout(() => {
+            window.location.href = 'http://localhost:3600/user/registro';
+        }, 2000); // El retraso se define en milisegundos (en este caso, 2000 ms = 2 segundos)
+    });
+</script>
+
+<script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'es',  // Establece el idioma original
+            autoDisplay: false,
+        }, 'google_translate_element');
+    }
+  
+    document.getElementById('toggleTranslationBtn').addEventListener('click', function () {
+        var select = document.querySelector('.goog-te-combo');
+        var languageIndicator = document.getElementById('languageIndicator');
+
+        if (select && languageIndicator) {
+            if (select.value === 'en') {
+                // Si el idioma actual es inglés, cambia a español
+                select.value = 'es';
+                languageIndicator.textContent = 'esp';
+            } else {
+                // Si el idioma actual no es inglés, cambia a inglés
+                select.value = 'en';
+                languageIndicator.textContent = 'eng';
+            }
+
+            var event = new Event('change');
+            select.dispatchEvent(event);
+        }
+    });
+</script>

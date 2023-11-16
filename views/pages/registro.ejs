@@ -1,0 +1,448 @@
+
+
+
+<main>
+     <div class="contenedor-formularios" data-aos="fade-down">    
+          <ul class="contenedor-tabs">
+               <li class="tab tab-segunda active">
+                    <a id="LOGIN" href="/user/registro?active=login">INICIAR SESION</a>
+               </li>
+               <li class="tab tab-primera">
+                    <a id="SIGNUP" href="/user/registro?active=signup">REGISTRARSE</a>
+               </li>
+          </ul>
+          <div class="contenido-tab">
+               <div id="iniciar-sesion">
+                    <div>
+                    <form action="/user/registro" method="post" class="formularioInicioSesion">    
+                         <input type="hidden" name="activeTab" value="login">
+                         <h2>LOGIN </h2>
+                         
+                         <input type="text" placeholder="Nombre de usuario" name="username" class="inputInicioSesion" id="usernameInput">
+                                        
+                         <input type="password" placeholder="Contraseña" name="password" class="inputInicioSesion" id="passwordInput">
+                        
+                         <% if(errorMessage) { %>
+                              <p class="error-message"><%= errorMessage %></p>
+                         <% } %>
+                         <input type="submit" value="ENTRAR" class="botonIniciarSesion">
+                    </form>
+                    </div>
+                    <div class="container-google">
+                         <div class="linea-or">
+                           <span class="primera-linea"></span>
+                           <span class="or">O</span>
+                           <span class="segunda-linea"></span>
+                         </div>
+                         <div class="container-google-button">
+                                   <button class="boton-google googleButtonLogin"> 
+                                        
+                                        <a href="/user/auth/google?action=login"> 
+                                             <img src="https://cdn-icons-png.flaticon.com/512/2702/2702602.png" alt="google" width="20px" height="20px">  
+                                             <span class="">Loguearse con Google</span>
+                                        </a>
+                                       
+                                   </button>
+
+                                   <!-- <iframe src="https://accounts.google.com.....">
+                                   </iframe> -->
+                         </div>
+                    </div>
+               </div>
+               <div id="registrarse">
+                    <div>
+                    <form action="/user/registro" method="post" class="formularioRegistro">
+                         <input type="hidden" name="activeTab" value="signup">
+                         <h2>INGRESE SU INFORMACION</h2>
+                         
+                         <!-- <p>USUARIO</p> -->
+                         <input type="text" placeholder="Mesias" name="username" class="inputRegistro" id="usernameInputRegistro" oninput="validarTexto()">
+                         <p id="mensajeErrorRegistro" class="error-message"></p>
+
+                         <!-- <p>CONTRASEÑA</p> -->
+                         <input type="password" placeholder="Contraseña123*" name="password" class="inputRegistro" id="passwordInputRegistro" oninput="validarPassword()">
+                         <p id="mensajeErrorPasswordRegistro" class="error-message"></p>
+
+                         <!-- <p>EMAIL</p> -->
+                         <input type="email" placeholder="santi123@hotmail.com" name="email" class="inputRegistro" id="emailInputRegistro" oninput="validarEmail()">
+                         <p id="mensajeErrorEmailRegistro" class="error-message"></p>
+                         <% if(errorMessage) { %>
+                              <p class="error-message"><%= errorMessage %></p>
+                         <% } %>
+                         <span>Al registrarte, aceptas nuestras Condiciones, nuestra Política de privacidad y nuestra Política de cookies.</span>
+                         <input type="submit" value="ENVIAR" class="botonRegistrate">
+                    </form>
+                    </div>
+                    <div class="container-google">
+                         <div class="linea-or">
+                           <span class="primera-linea"></span>
+                           <span class="or">O</span>
+                           <span class="segunda-linea"></span>
+                         </div>
+                         <div class="container-google-button">
+                                   <button class="boton-google googleButtonRegister"> 
+                                        
+                                        <a href="/user/auth/google?action=register"> 
+                                             <img src="https://cdn-icons-png.flaticon.com/512/2702/2702602.png" alt="google" width="20px" height="20px">  
+                                             <span class="">Registrarse con Google</span>
+                                        </a>
+                                       
+                                   </button>
+                         </div>
+                    </div>
+
+
+               </div>
+          </div>
+     </div> 
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
+   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+     // const mensajeErrorLogin = document.getElementById("mensajeErrorLogin");
+     const mensajeErrorElement = document.getElementById("mensajeError");
+     const mensajeErrorPassword = document.getElementById("mensajeErrorPassword");
+     const mensajeErrorEmail = document.getElementById("mensajeErrorEmail"); 
+     const iniciarSesionTab = document.querySelector(".tab-segunda");  //contenedor login
+     const registrarseTab = document.querySelector(".tab-primera");   //contenedor registro
+     const iniciarSesionForm = document.getElementById("iniciar-sesion"); //formulario login
+     const registrarseForm = document.getElementById("registrarse");  //formulario registro
+     const LOGIN = document.getElementById("LOGIN");          //boton login
+     const SIGNUP = document.getElementById("SIGNUP"); 
+     let domain = 'localhost'; // por defecto en desarrollo
+
+     if (window.location.hostname !== 'localhost') {
+          domain = window.location.hostname; // en producción, establecer el dominio actual
+     }
+
+     console.log("estoy aca")
+       //boton registro
+     const url = window.location.href;
+     const urlParams = new URLSearchParams(url.split('?')[1]);
+     const activeTab = urlParams.get('active');
+     // mensajeErrorLogin.style.display = "none";
+     // mensajeErrorElement.style.display = "none";
+     // mensajeErrorPassword.style.display = "none";
+     const mensajeErrorLOGIN = document.getElementById("mensajeErrorLogin");
+
+     //error de login
+     console.log(mensajeErrorLOGIN)
+     if (mensajeErrorLOGIN) {
+    // Muestra el mensaje de error
+    mensajeErrorLOGIN.style.display = "block";
+    mensajeErrorLOGIN.textContent = "Usuario o contraseña incorrectos";
+     } else {
+    // Opcional: Puedes manejar la situación donde el elemento no se encuentra
+    console.error("El elemento mensajeErrorLogin no se encontró");
+     }
+     Cookies.set('activeTab', 'login', { expires: 365, path: '/', domain: domain, secure: true, sameSite: 'none' });
+
+
+
+     console.log("estoy aca")
+     if (activeTab === 'signup') {
+          console.log("active tab es signup");
+          LOGIN.classList.remove("active");
+          SIGNUP.classList.add("active");
+          registrarseForm.style.display = "block";
+          iniciarSesionForm.style.display = "none";
+          Cookies.set('activeTab', 'signup', { expires: 365, path: '/', domain: domain, secure: true, sameSite: 'none' });
+     } else {
+          console.log("active tab es login");
+          LOGIN.classList.add("active");
+          SIGNUP.classList.remove("active");
+          registrarseForm.style.display = "none";
+          iniciarSesionForm.style.display = "block";
+          Cookies.set('activeTab', 'login', { expires: 365, path: '/', domain: domain, secure: true, sameSite: 'none' });
+
+     }
+
+     LOGIN.addEventListener("click", function() {
+          console.log("apreto login");
+          if(!LOGIN.classList.contains("active")){
+               SIGNUP.classList.remove("active");
+               LOGIN.classList.add("active");
+               Cookies.set('activeTab', 'login', { expires: 365, path: '/', domain: domain, secure: true, sameSite: 'none' });
+          }
+          
+          iniciarSesionTab.classList.add("active");
+          registrarseTab.classList.remove("active");
+          iniciarSesionForm.style.display = "block";
+          registrarseForm.style.display = "none";
+          Cookies.set('activeTab', 'login', { expires: 365, path: '/', domain: domain, secure: true, sameSite: 'none' });
+
+     });
+     SIGNUP.addEventListener("click", function() {
+          console.log("apreto signup");
+          if(SIGNUP.classList.contains("active")){
+          }
+          else
+          {
+               LOGIN.classList.remove("active");
+               SIGNUP.classList.add("active");
+               Cookies.set('activeTab', 'signup', { expires: 365, path: '/', domain: domain, secure: true, sameSite: 'none' });
+
+          }
+
+          
+          registrarseTab.classList.add("active");
+          iniciarSesionTab.classList.remove("active");
+          registrarseForm.style.display = "block";
+          iniciarSesionForm.style.display = "none";
+          Cookies.set('activeTab', 'signup', { expires: 365, path: '/', domain: domain, secure: true, sameSite: 'none' });
+
+
+     });
+});
+    
+
+
+</script>
+  
+
+
+<style>
+footer,header{
+     display: none;
+}
+body{
+     background-color: whitesmoke;
+}
+
+main {
+     height: 65vh;
+     width: 90vw;
+     margin: 0 auto;
+     }
+.contenedor-formularios {
+     width: 100%;
+     max-width: 500px;
+     margin: 0 auto;
+     margin-top: 30px;
+     padding: 30px 0px;
+     border-radius: 5px;
+     background-color: #fff;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor-tabs {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+     overflow: hidden;
+     border-radius: 5px;
+     background: white;
+     margin-bottom: 20px;
+     display: flex;
+     justify-content: center;
+     gap:15px;
+}
+
+
+
+
+.contenedor-tabs li a {
+     display: block;
+     color: #333;
+     color: rgb(200, 200, 200);
+     text-align: center;
+     padding: 14px 16px;
+     text-decoration: none;
+     border-radius: 5px;
+     opacity: 0.3;
+     background-color: rgb(50,50,50);
+     
+}
+
+.contenedor-tabs li a:hover {
+     background-color: rgb(91, 91, 91 );
+     color:white;
+     opacity: 0.7;
+}
+
+.contenedor-tabs li a.active {
+     background-color: #007BFF;
+     color: white;
+     opacity: 1;
+}
+
+
+#registrarse {
+     text-align: center;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+
+}
+
+#iniciar-sesion {
+     text-align: center;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+.formularioInicioSesion, .formularioRegistro{
+     display:flex;
+     flex-direction: column; 
+     width: 80%;
+     margin: 0 auto;
+     background-color: transparent;
+     border-radius: 10px;
+     gap: 0.7rem;
+}
+
+.formularioInicioSesion h2, .formularioRegistro h2 {
+     text-align: center;
+     margin-bottom: 20px;
+}
+
+.inputInicioSesion, .inputRegistro {
+     width: 100%;
+     height: 2.5rem;
+     padding: 0.5rem;
+     border: 2px solid #bebebe;
+     border-radius: 5px;
+     margin-top: 15px;
+     font-size: 1rem;
+}
+
+.error-message {
+     color: red;
+     text-align: left;
+     margin-bottom: 0px;
+     
+}
+
+#mensajeErrorLogin{
+     color: red;
+}
+.botonRegistrate, .botonIniciarSesion {
+     background-color: #007BFF;
+     color: #fff;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+     width: 90%;
+     margin: 10px auto;
+     height: 2.5rem;
+     font-size: 1rem;
+     text-align: center;
+     
+}
+.botonRegistrate:hover, .botonIniciarSesion:hover {
+     background-color: #0056b3;
+     border: 2px solid #0056b3;
+}
+
+.inputRegistro, .inputInicioSesion,
+.botonRegistrate, .botonIniciarSesion {
+     transition: all 0.4s ease-in-out;
+}
+
+.inputRegistro:focus,.inputInicioSesion:focus,.inputInicioSesion:valid,
+.inputRegistro:valid {
+     background-color: #fff;
+     outline-color: #222;
+}
+.inputRegistro:hover, .inputInicioSesion:hover {
+     border: 2px solid #616161;
+}   
+
+
+.formularioRegistro p {
+     width: 100%;
+     margin: 0;
+     text-align: center;
+     
+}
+
+
+.inputRegistro, .inputInicioSesion {
+     cursor:auto;
+     color: #333333;
+}
+
+
+.container-google {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.linea-or {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.primera-linea,
+.segunda-linea {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.or {
+  margin: 0 10px;
+  color: #ccc;
+}
+
+.container-google-button {
+  margin-top: 20px;
+}
+
+
+
+.container-google{
+     width: 80%;
+     margin: 0 auto;
+}
+
+.boton-google {
+     background-color:#f0f0f0;
+     border: 2px solid black;
+     border-radius: 15px;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+     width: 70%;
+     margin: 0 auto;
+     height: 2.5rem;
+     font-size: 1rem;
+     text-align: center;
+     transition: all 0.4s ease-in-out;
+}
+
+
+.boton-google:hover{
+     background-color:#333333 ;
+     border: 2px solid #0056b3;
+}
+
+.boton-google a{
+     text-decoration: none;
+     color: black;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 10px;
+     text-transform: uppercase;
+     /* font-weight: bold; */
+     font-size: 14px;
+}
+
+.boton-google:hover  span{
+     transition: all 0.4s ease-in-out;
+     color:white;
+     
+}
+
+
+</style>
+
+<script src="/utilsFront/validaciones.js"></script>
